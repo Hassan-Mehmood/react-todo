@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   return (
@@ -33,3 +33,4 @@ function App() {
 }
 
 export default App;
+// tasks:
