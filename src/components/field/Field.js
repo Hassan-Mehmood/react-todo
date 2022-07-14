@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import React from "react";
 
-const Field = ({ tasks }) => {
+const Field = ({ tasks, taskHandler }) => {
   let [todo, setTodo] = useState({
     name: "",
   });
@@ -10,11 +10,13 @@ const Field = ({ tasks }) => {
   const add = (e) => {
     e.preventDefault();
     if (todo.name === "") {
-      alert("Field are empty");
+      alert("Field is empty");
       return;
     }
 
-    console.log(todo);
+    setTodo({name:""})
+
+    taskHandler(todo);
   };
 
   return (

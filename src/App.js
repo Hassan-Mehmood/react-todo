@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
 import Header from "./components/header/Header";
@@ -9,8 +9,19 @@ function App() {
   let [tasks, setTasks] = useState([]);
 
   const taskHandler = (task) => {
-    console.log(task)
+    setTasks([...tasks, task]);
   };
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("tasks"));
+    if (items) {
+      setTasks(items);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div className="App">
