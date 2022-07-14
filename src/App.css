@@ -9,3 +9,7 @@
   max-width: 300px;
   margin: 2rem auto 1rem;
 }
+
+.trashCan {
+  cursor: pointer;
+}
