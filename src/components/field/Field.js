@@ -6,6 +6,7 @@ const Field = ({ taskHandler }) => {
   let [todo, setTodo] = useState({
     id: "",
     name: "",
+    complete: false
   });
 
   const on_Submit = (e) => {

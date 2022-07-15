@@ -67,5 +67,5 @@ form button:hover {
 }
 
 .taskDone {
-  text-decoration: line-through;
+  background-color: rgb(185, 255, 185);
 }
