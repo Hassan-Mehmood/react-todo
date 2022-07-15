@@ -1,9 +1,13 @@
 import React from "react";
 import Card from "../card/Card";
-const Cards = (props) => {
+const Cards = ({ tasks, deleteTaskHandler }) => {
+  const deleteTask = () => {
+    deleteTaskHandler();
+  };
+
   return (
     <div>
-      <Card tasks={props.tasks}></Card>
+      <Card tasks={tasks} deleteTaskHandler={deleteTask}></Card>
     </div>
   );
 };

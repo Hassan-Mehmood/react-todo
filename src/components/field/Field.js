@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import React from "react";
 
-const Field = ({ tasks, taskHandler }) => {
+const Field = ({ taskHandler }) => {
   let [todo, setTodo] = useState({
     id: "",
     name: "",
@@ -15,7 +15,6 @@ const Field = ({ tasks, taskHandler }) => {
       alert("Field is empty");
       return;
     }
-
     setTodo({ name: "", id: "" });
 
     taskHandler(todo);
@@ -29,7 +28,7 @@ const Field = ({ tasks, taskHandler }) => {
           value={todo.name}
           onChange={(e) => setTodo({ name: e.target.value })}
         />
-        <button style={{ margin: "1rem", padding: "0.5rem 1rem" }}>Add</button>
+        <button>Add</button>
       </form>
     </div>
   );

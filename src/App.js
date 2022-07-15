@@ -10,7 +10,7 @@ function App() {
   let [tasks, setTasks] = useState(
     () => JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
   );
-  
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
   }, [tasks]);
@@ -19,11 +19,13 @@ function App() {
     setTasks([...tasks, task]);
   };
 
+  const deleteTaskHandler = (id) => {};
+
   return (
     <div className="App">
       <Header />
       <Field tasks={tasks} taskHandler={taskHandler}></Field>
-      <Cards tasks={tasks}></Cards>
+      <Cards tasks={tasks} deleteTaskHandler={deleteTaskHandler}></Cards>
     </div>
   );
 }
