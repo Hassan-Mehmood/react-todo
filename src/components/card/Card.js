@@ -7,6 +7,9 @@ const Card = ({ tasks, deleteTaskHandler }) => {
   const deleteTasks = (id) => {
     deleteTaskHandler(id);
   };
+  const taskDone = (name) => {
+    
+  };
 
   let renderTaks = tasks.map((task) => {
     return (
@@ -18,7 +21,7 @@ const Card = ({ tasks, deleteTaskHandler }) => {
           <div className="Icons">
             <BsCheckLg
               className="tickIcon"
-              onClick={() => setDoneTask(!doneTask)}
+              onClick={() => taskDone(task.name)}
             />
             <BsFillTrashFill
               className="trashCan"
