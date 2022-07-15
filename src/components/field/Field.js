@@ -4,24 +4,26 @@ import React from "react";
 
 const Field = ({ tasks, taskHandler }) => {
   let [todo, setTodo] = useState({
+    id: "",
     name: "",
   });
 
-  const add = (e) => {
+  const on_Submit = (e) => {
     e.preventDefault();
+    todo.id = Math.floor(Math.random() * 10000) + 1;
     if (todo.name === "") {
       alert("Field is empty");
       return;
     }
 
-    setTodo({name:""})
+    setTodo({ name: "", id: "" });
 
     taskHandler(todo);
   };
 
   return (
     <div>
-      <form onSubmit={add}>
+      <form onSubmit={on_Submit}>
         <input
           type="text"
           value={todo.name}

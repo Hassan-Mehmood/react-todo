@@ -6,22 +6,18 @@ import Field from "./components/field/Field";
 import Cards from "./components/cards/Cards";
 
 function App() {
-  let [tasks, setTasks] = useState([]);
+  const STORAGE_KEY = "Tasks";
+  let [tasks, setTasks] = useState(
+    () => JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
+  );
+  
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  }, [tasks]);
 
   const taskHandler = (task) => {
     setTasks([...tasks, task]);
   };
-
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("tasks"));
-    if (items) {
-      setTasks(items);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
 
   return (
     <div className="App">
@@ -33,4 +29,3 @@ function App() {
 }
 
 export default App;
-// tasks:
