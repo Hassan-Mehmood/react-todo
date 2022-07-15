@@ -2,9 +2,8 @@ import React from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const Card = ({ tasks, deleteTaskHandler }) => {
-  const deleteTasks = (e) => {
-    console.log(e.target.key)
-    deleteTaskHandler();
+  const deleteTasks = (id) => {
+    deleteTaskHandler(id);
   };
 
   let renderTaks = tasks.map((task) => {
@@ -12,7 +11,7 @@ const Card = ({ tasks, deleteTaskHandler }) => {
       <div key={task.id} className="cardContainer">
         <div className="text">{task.name}</div>
         <div className="trashIcon">
-          <BsFillTrashFill className="trashCan" onClick={deleteTasks} />
+          <BsFillTrashFill className="trashCan" onClick={() => deleteTasks(task.id)} />
         </div>
       </div>
     );

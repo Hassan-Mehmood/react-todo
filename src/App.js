@@ -19,7 +19,13 @@ function App() {
     setTasks([...tasks, task]);
   };
 
-  const deleteTaskHandler = (id) => {};
+  const deleteTaskHandler = (id) => {
+    const newTasks = tasks.filter((task) => {
+      return task.id !== id;
+    });
+
+    setTasks(newTasks);
+  };
 
   return (
     <div className="App">
