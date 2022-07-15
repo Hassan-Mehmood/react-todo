@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../card/Card";
-const Cards = ({ tasks, deleteTaskHandler }) => {
+const Cards = ({ tasks, deleteTaskHandler, taskDoneHandler }) => {
   const deleteTask = (id) => {
     deleteTaskHandler(id);
   };
